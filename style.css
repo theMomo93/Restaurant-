@@ -8,11 +8,7 @@
 /* NAVIGATION BAR STYLING*/
 
 nav{
-<<<<<<< HEAD
-    background-color: rgba(126, 49, 49, 0.584);
-=======
     background-color: rgba(123, 40, 40, 0.697);
->>>>>>> a3817f5ef1dd2839ba746bd8011105ed9e3233df
     width: 100%;
     height: 110px;
     display: flex;
@@ -35,11 +31,7 @@ nav a:hover{
 /* NAVIGATION BAR STYLING*/
 
 .header-container{
-<<<<<<< HEAD
-    background-image: url("/images/fireOven.jpg");
-=======
     background-image: url("/images/fireOven\ \(1\).jpg");
->>>>>>> a3817f5ef1dd2839ba746bd8011105ed9e3233df
     opacity: 0.7;
     height: 690px;
 }
