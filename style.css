@@ -3,6 +3,7 @@
     padding: 0;
     box-sizing: border-box;
     font-family: 'Amatic SC', sans-serif;
+    
 }
 
 /* NAVIGATION BAR STYLING*/
@@ -39,4 +40,7 @@ nav a:hover{
     color: white;
     font-size: 3rem;
     align-items: center;
+}
+section{
+    margin-left: 20px;
 }

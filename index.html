@@ -32,41 +32,69 @@
 
     <section class =" section-one">
         <div id="menu" class="menu-container">
-            <h1 class ="pizza-M"><b>Margherita</b></h1> <span class="price-M">8.50€</span>
+            <h1 class ="pizza-M"><b>Margherita</b></h1> <span class="price">8.50€</span>
             <p>Fresh mozzarella, fresh basil, tomato sauce</p>
             <hr>
-            <h1 class ="pizza-M"><b>Fungi</b></h1> <span class="price-M">8.50€</span>
+            <h1 class ="pizza-F"><b>Fungi -V</b></h1> <span class="price">9.50€</span>
             <p>Fresh mozzarella, fresh basil, mushrooms, tomato sauce </p>
             <hr>
-            <h1 class ="pizza-M"><b>Hawaii</b></h1> <span class="price-M">8.50€</span>
+            <h1 class ="pizza-H"><b>Hawaii</b></h1> <span class="price">6.50€</span>
             <p>Fresh mozzarella, fresh basil, pineapple, tomato sauce, chicken</p>
             <hr>
-            <h1 class ="pizza-M"><b>Salami</b></h1> <span class="price-M">8.50€</span>
-            <p>Fresh mozzarella, fresh basil, salami </p>
+            <h1 class ="pizza-S"><b>Salami</b></h1> <span class="price">10.50€</span>
+            <p>Fresh mozzarella, fresh basil, salami </p><button class="add">add</button>
             <hr>
-            <h1 class ="pizza-M"><b>Margherita  - V </b></h1> <span class="price-M">8.50€</span>
+            <h1 class ="pizza-V"><b>Veggi-O  - V </b></h1> <span class="price">5.50€</span>
             <p>Fresh mozzarella, fresh basil, tomato, paprika, onion</p>
             <hr>
-            <h1 class ="pizza-M"><b>Tunno</b></h1> <span class="price-M">8.50€</span>
+            <h1 class ="pizza-T"><b>Tunno</b></h1> <span class="price">7.50€</span>
             <p>Fresh mozzarella, fresh basil, tuna, onion, tomato sauce</p>
             <hr>
 
 
         </div>
     </section>
-    <section class="section-two">
-        <div class="place-an-order">
 
-        </div>
-        <div class="add-dish">
-        
-        </div>
-        
+    <div class="place-an-order">
+        <h1>Choose Your Table</h1>
+        <select id="table" name="table">
+            <option value = "table-number-1">Table 1</option>
+            <option value = "table-number-2">Table 2</option>
+            <option value = "table-number-3">Table 3</option>
+            <option value = "table-number-4">Table 4</option>
+            <option value = "table-number-5">Table 5</option>
+            <option value = "table-number-6">Table 6</option>
+        </select>
+        <button class="table-button" onclick="selectTable()">Save</button>
+ 
+    
 
-    </section>
+
+    <hr>
     <section class="section-three">
-        <div class="calculate-order">
-            <h1>You total is: </h1>
+        <div id="order-details">
+            <h2>ORDER FOR A:  <span id="selected-table"> </span></h2>
+
+            <input type="checkbox" id="Margherita" name="pizza1" >
+            <label for="pizza1"> Margherita - 6.50€</label><br>
+            <input type="checkbox" id="Fungi" name="pizza2" >
+            <label for="pizza2"> Fungi - 7.45€</label><br>
+            <input type="checkbox" id="Hawaii" name="pizza3" >
+            <label for="pizza3"> Hawaii - 8.99€</label><br>
+            <input type="checkbox" id="Salami" name="pizza4" >
+            <label for="pizza4"> Salami - 9.50€</label><br>
+            <input type="checkbox" id="Veggi" name="pizza5" >
+            <label for="pizza5"> Veggi - 5.99€</label><br>
+            <input type="checkbox" id="Tunno" name="pizza6" >
+            <label for="pizza6"> Tunno - 7.35€</label><br>
+
+            <button class="userChoice" onclick="saveChoices()">Save</button>
+
+            <div>
+             <h2>CHOSEN DISHES:</h2>   <h2 class="choices"></h2>
+            </div>
+
+            <h1>TOTAL PRICE: <span id="total-price"></span></h1>
 
         </div>
     </section>
