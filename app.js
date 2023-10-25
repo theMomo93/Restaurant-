@@ -1,9 +1,7 @@
-// Data Structures
-let menus = [
-    { id: 1, name: "Meatballs", price: 10.99 },
-    { id: 2, name: "Schnitzel", price: 12.99 },
+
+let menus = [];
+let orders = [];
     // Add more dishes as needed
-];
 
 let tables = [
     { id: 1 },
@@ -11,13 +9,11 @@ let tables = [
     { id: 3 },
     { id: 4 },
     { id: 6 },
-    { id: 7 },
-    // Add more tables as needed
+        // Add more tables as needed
 ];
 
-let orders = [];
-
-// Function to populate dropdowns
+// THIS WORKS CORRECTLY
+// Function to populate dropdowns with table and dishes 
 function populateDropdowns() {
     const tableSelect = document.querySelector("#tableSelect");
     const dishSelect = document.querySelector("#dishSelect");
@@ -28,46 +24,18 @@ function populateDropdowns() {
     tables.forEach((table) => {
         const option = document.createElement("option");
         option.value = table.id;
-        option.textContent = `Table ${table.id}`;
+        option.textContent = "Table " + table.id;
         tableSelect.appendChild(option);
     });
 
     menus.forEach((dish) => {
         const option = document.createElement("option");
         option.value = dish.id;
-        option.textContent = `${dish.name} - $${dish.price}`;
+        option.textContent = dish.name + " - $" + dish.price;
         dishSelect.appendChild(option);
     });
 }
-
-// Function to update order list
-function updateOrderList() {
-    const orderList = document.querySelector("#orderList");
-    orderList.innerHTML = "";
-
-    orders.forEach((order) => {
-        const li = document.createElement("li");
-        li.textContent = `Table ${order.table} - ${menus.find(item => item.id === order.dish).name}`;
-        const cancelButton = document.createElement("button");
-        cancelButton.textContent = "Cancel Order";
-        cancelButton.addEventListener("click", () => cancelOrder(order));
-        li.appendChild(cancelButton);
-        orderList.appendChild(li);
-    });
-}
-
-// Function to calculate the total bill for a table
-function calculateTotalBill() {
-    const totalBill = document.querySelector("#totalBill");
-    const selectedTable = document.querySelector("#tableSelect").value;
-    const tableOrders = orders.filter(order => order.table == selectedTable);
-    const total = tableOrders.reduce((sum, order) => {
-        const dish = menus.find(item => item.id === order.dish);
-        return sum + dish.price;
-    }, 0);
-    totalBill.textContent = `Total Bill for Table ${selectedTable}: $${total.toFixed(2)}`;
-}
-
+// THIS WORKS CORRECTLY
 // Function to update the list of menu items
 function updateMenuList() {
     const menuList = document.querySelector("#menuList");
@@ -79,10 +47,18 @@ function updateMenuList() {
 
         const deleteButton = document.createElement("button");
         deleteButton.textContent = "Delete";
-        deleteButton.addEventListener("click", () => {
+        deleteButton.setAttribute("data-index", index);
+
+    deleteButton.addEventListener("click", (event) => {
             // Remove the parent container when the delete button is clicked
-            menuList.removeChild(li);
-            deleteDish(index); // Delete the corresponding dish from the data array
+            const indexToRemove = event.target.getAttribute("data-index"); // Get the index from the custom attribute
+            if (indexToRemove !== null) {
+                // Remove the dish from both the UI and the data array
+                menuList.removeChild(li);
+                deleteDish(indexToRemove);
+                // Update the menu list after deletion
+                updateMenuList();
+            }
         });
 
         li.appendChild(deleteButton);
@@ -91,6 +67,7 @@ function updateMenuList() {
 }
 
 
+// THIS WORKS CORRECTLY
 // Function to add a dish to the menu
 function addDish() {
     const dishName = document.querySelector("#dishName").value;
@@ -104,24 +81,15 @@ function addDish() {
     }
 }
 
-// Function to place an order
-function placeOrder() {
-    const tableId = document.querySelector("#tableSelect").value;
-    const dishId = document.querySelector("#dishSelect").value;
-    orders.push({ table: tableId, dish: dishId });
-    updateOrderList();
-    calculateTotalBill();
+function deleteDish(index) {
+    // Remove the dish at the specified index from the "menus" array
+    if (index >= 0 && index < menus.length) {
+        menus.splice(index, 1);
+    }
+
 }
 
-// Function to cancel an order
-function cancelOrder(order) {
-    const index = orders.indexOf(order);
-    if (index > -1) {
-        orders.splice(index, 1);
-        updateOrderList();
-        calculateTotalBill();
-    }
-}
+
 
 // Event Listeners
 document.querySelector("#addDishBtn").addEventListener("click", addDish);
@@ -129,7 +97,5 @@ document.querySelector("#placeOrderBtn").addEventListener("click", placeOrder);
 
 // Initial population of dropdowns and order list
 populateDropdowns();
-updateOrderList();
 updateMenuList();
-calculateTotalBill()
-placeOrder();
+
