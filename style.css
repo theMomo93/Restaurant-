@@ -1,46 +1,45 @@
-*{
+body {
+    font-family: Arial, sans-serif;
     margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Amatic SC', sans-serif;
-    
+    padding: 20px;
 }
 
-/* NAVIGATION BAR STYLING*/
+h1 {
+    text-align: center;
+}
 
-nav{
-    background-color: rgba(123, 40, 40, 0.697);
-    width: 100%;
-    height: 110px;
+.section {
+    margin-top: 20px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    background-color: #f9f9f9;
+}
+
+h2 {
+    font-size: 1.2em;
+}
+
+form {
     display: flex;
-    justify-content: space-around;
-    align-items: center;
-    
-    
-}
-nav a{
-    color: black;
-    font-size: 3rem;
-    text-decoration: none;
-    padding: 1% 9% 1%;
-}
-nav a:hover{
-    color: rgba(211, 211, 211, 0.584);
-    background-color: black;
+    flex-wrap: wrap;
 }
 
-/* NAVIGATION BAR STYLING*/
+input, select, button {
+    margin: 5px;
+    padding: 5px;
+}
 
-.header-container{
-    background-image: url("/images/fireOven\ \(1\).jpg");
-    opacity: 0.7;
-    height: 690px;
+ul {
+    list-style: none;
+    padding: 0;
 }
-.header-container span{
-    color: white;
-    font-size: 3rem;
-    align-items: center;
+
+li {
+    border: 1px solid #ccc;
+    padding: 5px;
+    margin: 5px;
 }
-section{
-    margin-left: 20px;
+
+#totalBill {
+    font-weight: bold;
 }

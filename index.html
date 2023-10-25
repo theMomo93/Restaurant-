@@ -4,106 +4,71 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- STYLE-->
-    <link rel="stylesheet" href="style.css">
-    <!--FONTS-->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&family=Oswald:wght@200;400;600;700&display=swap" rel="stylesheet">
-    <title>JS Pizza</title>
-     <!-- BOOTSTRAP 5.3-->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+        <link rel="stylesheet" href="style.css">
+    <title>Document</title>
 </head>
 <body>
-<!--NAVIGATION BAR -->
-    <nav>
-        <a href="#home" class="home">HOME</a>
-        <a href="#menu" class="menu">MENU</a>
-        <a href="#about" class="about">ABOUT</a>
-        <a href="#contact" class="contact">CONTACT</a>
-    </nav>
-
- <!--HEADER IMAGE AND TITLE-->
-    <div class="header-container">
-        <span><h1>BEST FLAMING OVEN PIZZA ONLY AT <br> JS PIZZA</h1></span>
-        <p><a href="#menu" class="menu-button">Let me see the menu</a></p>
-
+    <header>
+        <h1>Restaurant Menu</h1>
+    
+    <div class="section">
+        <h2>Add New Dish to Menu</h2>
+        <form id="addDishForm">
+            <input type="text" id="dishName" placeholder="Dish Name">
+            <input type="number" id="dishPrice" placeholder="Dish Price">
+            <button type="button" id="addDishBtn">Add Dish</button>
+            
+        </form>
     </div>
 
-    <section class =" section-one">
-        <div id="menu" class="menu-container">
-            <h1 class ="pizza-M"><b>Margherita</b></h1> <span class="price">8.50€</span>
-            <p>Fresh mozzarella, fresh basil, tomato sauce</p>
-            <hr>
-            <h1 class ="pizza-F"><b>Fungi -V</b></h1> <span class="price">9.50€</span>
-            <p>Fresh mozzarella, fresh basil, mushrooms, tomato sauce </p>
-            <hr>
-            <h1 class ="pizza-H"><b>Hawaii</b></h1> <span class="price">6.50€</span>
-            <p>Fresh mozzarella, fresh basil, pineapple, tomato sauce, chicken</p>
-            <hr>
-            <h1 class ="pizza-S"><b>Salami</b></h1> <span class="price">10.50€</span>
-            <p>Fresh mozzarella, fresh basil, salami </p><button class="add">add</button>
-            <hr>
-            <h1 class ="pizza-V"><b>Veggi-O  - V </b></h1> <span class="price">5.50€</span>
-            <p>Fresh mozzarella, fresh basil, tomato, paprika, onion</p>
-            <hr>
-            <h1 class ="pizza-T"><b>Tunno</b></h1> <span class="price">7.50€</span>
-            <p>Fresh mozzarella, fresh basil, tuna, onion, tomato sauce</p>
-            <hr>
+    <div class="section">
+        <h2>Place Orders</h2>
+        <form id="placeOrderForm">
+            <select id="tableSelect">
+                <!-- Options dynamically added with JavaScript -->
+            </select>
+            <select id="dishSelect">
+                <!-- Options dynamically added with JavaScript -->
+            </select>
+            <button type="button" id="placeOrderBtn">Place Order</button>
+        </form>
+    </div>
 
-
+    <div class="section">
+        <h2>Calculate Total Bill</h2>
+        <div id="totalBill">
+            <!-- Total bill amount displayed here dynamically -->
         </div>
-    </section>
+    </div>
 
-    <div class="place-an-order">
-        <h1>Choose Your Table</h1>
-        <select id="table" name="table">
-            <option value = "table-number-1">Table 1</option>
-            <option value = "table-number-2">Table 2</option>
-            <option value = "table-number-3">Table 3</option>
-            <option value = "table-number-4">Table 4</option>
-            <option value = "table-number-5">Table 5</option>
-            <option value = "table-number-6">Table 6</option>
-        </select>
-        <button class="table-button" onclick="selectTable()">Save</button>
- 
-    
+    <div class="section">
+        <h2>Menus</h2>
+        <ul id="menuList">
+            <!-- Menu items displayed here dynamically -->
+        </ul>
+    </div>
 
+    <div class="section">
+        <h2>Tables</h2>
+        <ul id="tableList">
+            <!-- Table items displayed here dynamically -->
+        </ul>
+    </div>
 
-    <hr>
-    <section class="section-three">
-        <div id="order-details">
-            <h2>ORDER FOR A:  <span id="selected-table"> </span></h2>
+    <div class="section">
+        <h2>Orders</h2>
+        <ul id="orderList">
+            <!-- Order items displayed here dynamically -->
+        </ul>
+    </div>
 
-            <input type="checkbox" id="Margherita" name="pizza1" >
-            <label for="pizza1"> Margherita - 6.50€</label><br>
-            <input type="checkbox" id="Fungi" name="pizza2" >
-            <label for="pizza2"> Fungi - 7.45€</label><br>
-            <input type="checkbox" id="Hawaii" name="pizza3" >
-            <label for="pizza3"> Hawaii - 8.99€</label><br>
-            <input type="checkbox" id="Salami" name="pizza4" >
-            <label for="pizza4"> Salami - 9.50€</label><br>
-            <input type="checkbox" id="Veggi" name="pizza5" >
-            <label for="pizza5"> Veggi - 5.99€</label><br>
-            <input type="checkbox" id="Tunno" name="pizza6" >
-            <label for="pizza6"> Tunno - 7.35€</label><br>
-
-            <button class="userChoice" onclick="saveChoices()">Save</button>
-
-            <div>
-             <h2>CHOSEN DISHES:</h2>   <h2 class="choices"></h2>
-            </div>
-
-            <h1>TOTAL PRICE: <span id="total-price"></span></h1>
-
+    <div class="section">
+        <h2>Calculate Total Bill</h2>
+        <div id="totalBill">
+            <!-- Total bill amount displayed here dynamically -->
         </div>
-    </section>
+    </div>
 
-
-
-     <!-- OUR JS CODE-->
-    <script src="/index.js"></script>
-    <!-- BOOTSTRAP 5.3 JS PAKIET-->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <script src="/app.js"></script>
 </body>
 </html>
